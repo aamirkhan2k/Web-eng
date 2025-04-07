@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKhan - Graphic Designer & WordPress Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .hero-text h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #3498db;
+        }
+        
+        .hero-text p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icons {
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: #fff;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            flex: 0 0 50%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .stat-item i {
+            font-size: 36px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            font-size: 16px;
+            color: #777;
+        }
+        
+        .skills {
+            flex: 1;
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 5px;
+        }
+        
+        /* Services Section */
+        #services {
+            background-color: #f9f9f9;
+        }
+        
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .service-item {
+            flex: 0 0 calc(33.33% - 20px);
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-item i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .service-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .service-item p {
+            color: #666;
+        }
+        
+        /* Resume Section */
+        #resume {
+            background-color: #fff;
+        }
+        
+        .resume-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .resume-column {
+            flex: 0 0 48%;
+        }
+        
+        .resume-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .resume-item::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: #3498db;
+            left: 20px;
+            top: 0;
+        }
+        
+        .resume-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #222;
+            padding-left: 40px;
+        }
+        
+        .resume-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #3498db;
+            padding-left: 40px;
+        }
+        
+        .resume-item p {
+            color: #666;
+            padding-left: 40px;
+        }
+        
+        .resume-item .date {
+            display: inline-block;
+            background-color: #e3f2fd;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #3498db;
+            margin-bottom: 10px;
+            margin-left: 40px;
+        }
+        
+        /* Portfolio Section */
+        #portfolio {
+            background-color: #f9f9f9;
+        }
+        
+        .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .portfolio-item {
+            flex: 0 0 calc(33.33% - 20px);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(52, 152, 219, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: #fff;
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .contact-info {
+            flex: 0 0 40%;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            margin-right: 15px;
+            color: #3498db;
+        }
+        
+        .contact-form {
+            flex: 0 0 55%;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-text p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: #3498db;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .resume-container, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text, .contact-info {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .service-item {
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .portfolio-item {
+                flex: 0 0 calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .hero-text h2 {
+                font-size: 24px;
+            }
+            
+            .stat-item {
+                flex: 0 0 100%;
+            }
+            
+            .service-item, .portfolio-item {
+                flex: 0 0 100%;
+            }
+            
+            .resume-column {
+                flex: 0 0 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">AAMIR KHAN</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h3>Hello I'm</h3>
+                <h1>AAMIR KHAN</h1>
+                <h2>And I'm a Graphic Designer | WordPress Developer</h2>
+                <p>I'm a professional designer with expertise in creating impactful visuals and building beautiful, functional WordPress websites.</p>
+                <a href="#about" class="btn">CHECK RESUME</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/400x500" alt="Aamir Khan">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ABOUT</h2>
+                <p>LEARN MORE ABOUT ME</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Graphic Designer | WordPress Developer</h3>
+                    <p>I'm a professional Graphic Designer with over 3 years of experience, specializing in creating impactful visuals including flyers, brochures, social media posters, logos, visiting cards, and more. My expertise lies in crafting designs that are not only visually appealing but also strategically aligned with brand goals.</p>
+                    <p>Additionally, I have 1 year of professional experience in WordPress website development. I create visually pleasing and user-friendly websites. I take pride in delivering custom WordPress solutions with seamless functionality to ensure an exceptional user experience.</p>
+                    <p>My commitment to customer satisfaction and timely delivery is at the core of everything I do, and I aim to help my clients achieve success through effective design and development solutions.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-smile"></i>
+                            <h4>8</h4>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>15+</h4>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-headset"></i>
+                            <h4>24</h4>
+                            <p>Hours Of Support</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-award"></i>
+                            <h4>2</h4>
+                            <p>Awards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills">
+                    <h3>SKILLS</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>PHOTOSHOP</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>ILLUSTRATOR</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>CORELDRAW</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>MY SERVICES</h2>
+            </div>
+            <div class="services-container">
+                <div class="service-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Graphic Design</h3>
+                    <p>Professional design services for logos, brochures, flyers, business cards, and all your visual communication needs.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Custom WordPress websites that are responsive, user-friendly, and tailored to your business requirements.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and engaging user interfaces that enhance user experience and drive conversions.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Digital Marketing</h3>
+                    <p>Comprehensive digital marketing strategies to increase your online presence and grow your business.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Social Media Marketing</h3>
+                    <p>Effective social media campaigns to engage your audience and promote your brand across platforms.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-edit"></i>
+                    <h3>Content Creation</h3>
+                    <p>High-quality content that resonates with your target audience and strengthens your brand message.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>RESUME</h2>
+                <p>CHECK MY RESUME</p>
+            </div>
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3>Summary</h3>
+                    <div class="resume-item">
+                        <h3>AAMIR KHAN</h3>
+                        <p>Creative and detail-oriented Graphic Designer and WordPress Developer with 3+ years of experience delivering high-quality design solutions and functional websites.</p>
+                        <ul>
+                            <li>Karachi, Pakistan</li>
+                            <li>+92 330 2184987</li>
+                            <li>aamir.noonari2k@gmail.com</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h3>BACHELOR IN SOFTWARE ENGINEERING</h3>
+                        <div class="date">2022 - 2026</div>
+                        <p>SINDH MADRESSAT UL ISLAM UNIVERSITY, KHI</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>DIPLOMA IN INFORMATION TECHNOLOGY</h3>
+                        <div class="date">2022 - 2023</div>
+                        <p>Szabist Center, Autobahn Road, Hyd</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>INTERMEDIATE, ENGINEERING:</h3>
+                        <div class="date">2020 - 2021</div>
+                        <p>Punjab College, Hyderabad Campus
+</p>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3>Professional Experience</h3>
+                    <div class="resume-item">
+                        <h3>Xpert Travel & Tours (Pvt) Ltd.</h3>
+                        <h4>Senior Accountant </h4>
+                        <div class="date">Sep 2022 - Aug 2024</div>
+                        <ul>
+                            <li>Maintain Invoices Records</li>
+                            <li>Maintain Vouchers  Records</li>
+                            <li>Bank Reconciliation </li>
+                            <li>Vendor Accounts Reconciliation</li>
+                            <li>Check Cash flow and office expenses</li>
+                            <li>Maintain Trial balance, Balance sheet, and Income sheet</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Graphic Designer</h3>
+                        <h4>SAMER PRINTER</h4>
+                        <div class="date">Mar 2021 - Sep 2021</div>
+                        <p>Created designs for print materials including business cards, banners, and packaging. Worked closely with clients to understand their design needs and deliver satisfactory results.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Digital Marketing</h3>
+                        <h4>Freelance</h4>
+                        <div class="date">2020 - Present</div>
+                        <p>Managed social media accounts and ran targeted advertising campaigns on Facebook Marketplace for various clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>PORTFOLIO</h2>
+                <p>MY WORK</p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project 1</h3>
+                        <p>Graphic Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Project 2</h3>
+                        <p>Web Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Project 3</h3>
+                        <p>Branding</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 4">
+                    <div class="portfolio-overlay">
+                        <h3>Project 4</h3>
+                        <p>Social Media</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 5">
+                    <div class="portfolio-overlay">
+                        <h3>Project 5</h3>
+                        <p>WordPress</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="Project 6">
+                    <div class="portfolio-overlay">
+                        <h3>Project 6</h3>
+                        <p>UI/UX Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONTACT</h2>
+                <p>CONTACT ME</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out to me for any questions or project inquiries. I'll get back to you as soon as possible.</p>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location:</h4>
+                            <p>Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email:</h4>
+                            <p>example@email.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Call:</h4>
+                            <p>+92 123 4567890</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-text">
+                <p>&copy; 2023 Aamir Khan. All Rights Reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Sticky header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            });
+        }
+    </script>
+</body>
+</html>
